@@ -8,7 +8,7 @@ def load_text_generator():
     text_generator.tokenizer.pad_token = text_generator.tokenizer.eos_token
     return text_generator
 
-SYSTEM_INSTRUCTIONS = (
+SYTEM_INSTRUCTIONS = (
     "You are a helpful assistant for software engineering. "
     "Answer concisely and give short code examples when useful. "
     "If unsure, say you are unsure.\n\n"
@@ -69,6 +69,6 @@ if user_input:
         if "Question:" in generated_answer:
             generated_answer = generated_answer.split("Question:")[0].strip()
 
-    # Displaying and storing chatbot response
-    st.chat_message("assistant").markdown(generated_answer)
-    st.session_state.chat_history.append((user_input, generated_answer))
+# Displaying and storing chatbot response
+st.chat_message("assistant").markdown(generated_answer)
+st.session_state.chat_history.append((user_input, generated_answer))
