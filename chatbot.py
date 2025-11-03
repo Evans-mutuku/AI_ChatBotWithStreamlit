@@ -39,6 +39,10 @@ with st.sidebar:
         st.session_state.chat_history = ["start new chat"]
         st.success("Chat history cleared")
 
+# Initialize chat history
+if "chat_history" not in st.session_state:
+    st.session_state.chat_history =[]
+
 # Display chat history
 for user_message, ai_reply in st.session_state.chat_history:
     st.chat_message("user").markdown(user_message)
