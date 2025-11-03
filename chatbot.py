@@ -8,12 +8,10 @@ def load_text_generator():
     text_generator.tokenizer.pad_token = text_generator.tokenizer.eos_token
     return text_generator
 
-SYTEM_INSTRUCTIONS = (
-    "You are a helpful assistant for software Engineering"
-    "Answer concisely and to the point"
-    "Use markdown to format your answers"
-    "Use emojis to make your answers more engaging"
-    "Use code blocks to format your answers"
+SYSTEM_INSTRUCTION = (
+    "You are a helpful assistant for software engineering. "
+    "Answer concisely and give short code examples when useful. "
+    "If unsure, say you are unsure.\n\n"
 )
 
 # Build the convo prompt
