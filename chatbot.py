@@ -8,7 +8,7 @@ def load_text_generator():
     text_generator.tokenizer.pad_token = text_generator.tokenizer.eos_token
     return text_generator
 
-SYSTEM_INSTRUCTION = (
+SYSTEM_INSTRUCTIONS = (
     "You are a helpful assistant for software engineering. "
     "Answer concisely and give short code examples when useful. "
     "If unsure, say you are unsure.\n\n"
