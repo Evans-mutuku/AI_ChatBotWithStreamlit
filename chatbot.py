@@ -69,6 +69,6 @@ if user_input:
         if "Question:" in generated_answer:
             generated_answer = generated_answer.split("Question:")[0].strip()
 
-# Displaying and storing chatbot response
-st.chat_message("assistant").markdown(generated_answer)
-st.session_state.chat_history.append((user_input, generated_answer))
+    # Displaying and storing chatbot response
+    st.chat_message("assistant").markdown(generated_answer)
+    st.session_state.chat_history.append((user_input, generated_answer))
