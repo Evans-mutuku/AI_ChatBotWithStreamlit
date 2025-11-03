@@ -9,21 +9,21 @@ def load_text_generator():
     return text_generator
 
 SYTEM_INSTRUCTIONS = (
-    "You are a helpful assistant for software Engineering",
-    "Answer concisely and to the point",
-    "Use markdown to format your answers",
-    "Use emojis to make your answers more engaging",
-    "Use code blocks to format your answers",
+    "You are a helpful assistant for software Engineering"
+    "Answer concisely and to the point"
+    "Use markdown to format your answers"
+    "Use emojis to make your answers more engaging"
+    "Use code blocks to format your answers"
 )
 
 # Build the convo prompt
 def build_conversation_prompt(chat_history, user_question):
     formated_conversation = []
     for previous_question, previous_answer in chat_history:
-        formated_conversation.append(f"User: {previous_question}\nAssistant: {previous_answer}\n")
+        formated_conversation.append(f"Question: {previous_question}\nAnswer: {previous_answer}\n")
     
-    formated_conversation.append(f"User: {user_question}\nAssistant:")
-    return SYTEM_INSTRUCTIONS + "\n" + "\n".join(formated_conversation)
+    formated_conversation.append(f"Question: {user_question}\nAnswer:")
+    return SYTEM_INSTRUCTIONS + "\n".join(formated_conversation)
 
 st.title("Evans - ChatBot UI")
 st.caption("Ask me anything about software Engineering")
@@ -36,7 +36,7 @@ with st.sidebar:
     temperature = st.slider("Temperature", min_value=0.1, max_value=1.0, value=0.5, step=0.1)
     
     if st.button("Clear Chat"):
-        st.session_state.chat_history = ["start new chat"]
+        st.session_state.chat_history = []
         st.success("Chat history cleared")
 
 # Initialize chat history
@@ -71,6 +71,6 @@ if user_input:
         if "Question:" in generated_answer:
             generated_answer = generated_answer.split("Question:")[0].strip()
 
-# Displaying and storing chatbot response
-st.chat_message("assistant").markdown(generated_answer)
-st.session_state.chat_history.append((user_input, generated_answer))
+    # Displaying and storing chatbot response
+    st.chat_message("assistant").markdown(generated_answer)
+    st.session_state.chat_history.append((user_input, generated_answer))
